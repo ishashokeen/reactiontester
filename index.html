@@ -25,14 +25,15 @@
 	<h1>Let's test your reactions!!!!!</h1>
 	<h3>click on the shapes as fast as you can</h3>
 	<p class="bold">time:<span id="timer"></span></p>
+ 	<p class="bold">Quickest time:<span id="quicktimer"></span></p>
  	
  	<div id="shape">
  		
  	</div>
 
 	<script type="text/javascript">
-		var start = new Date().getTime();
-
+		var start = new Date().getTime
+		var quickstart = new Date().getTime();
 		function getRandomColour(){
 			var letters = '0123456789ABCDEF'.split('');
 			var color = '#';
@@ -74,6 +75,10 @@
 			var end =new Date().getTime();
 			var timeTaken = (end-start)/1000;
 			document.getElementById("timer").innerHTML=timeTaken+"s";
+			if(quickstart>timeTaken){
+				quickstart = timeTaken;
+				document.getElementById("quicktimer").innerHTML=quickstart+"s";
+			}
 			appearAgain();
 		
 	}
